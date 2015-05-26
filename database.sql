@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10deb1
+-- version 4.0.10.10
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tiempo de generación: 25-05-2015 a las 12:31:17
--- Versión del servidor: 5.5.43-0ubuntu0.14.04.1
--- Versión de PHP: 5.5.9-1ubuntu4.9
+-- Servidor: 127.6.219.130:3306
+-- Tiempo de generación: 26-05-2015 a las 10:45:05
+-- Versión del servidor: 5.5.41
+-- Versión de PHP: 5.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de datos: `database`
+-- Base de datos: `apptfg`
 --
 
 -- --------------------------------------------------------
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
   PRIMARY KEY (`id`),
   KEY `id_political_party` (`id_political_party`,`section`),
   KEY `id_user` (`id_user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=37 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Volcado de datos para la tabla `comment`
@@ -86,16 +86,7 @@ INSERT INTO `comment` (`id`, `id_political_party`, `section`, `id_user`, `date`,
 (10, 1, 1020000, 1, '2015-04-10 20:54:53', 'vydd', 0, 0, 0, 0, 0),
 (11, 1, 1020000, 1, '2015-04-10 20:54:54', 'vydd', 0, 0, 0, 0, 0),
 (12, 1, 1020000, 1, '2015-04-10 20:54:55', 'vydd', 0, 0, 0, 0, 0),
-(13, 1, 1020000, 1, '2015-04-10 20:54:56', 'vydd', 0, 0, 0, 0, 0),
-(19, 1, 1000000, 1, '2015-04-13 18:43:55', 'dhhd', 0, 0, 0, 0, 0),
-(20, 1, 1000000, 1, '2015-04-13 19:58:36', 'Aquino', 0, 0, 0, 0, 0),
-(21, 1, 1000000, 1, '2015-04-13 19:58:50', 'Aquino', 0, 0, 0, 0, 0),
-(23, 1, 1000000, 1, '2015-04-19 19:39:04', 'caca\n', 0, 0, 0, 0, 0),
-(24, 1, 1000000, 1, '2015-04-19 19:39:19', 'peace', 0, 0, 0, 0, 0),
-(33, 1, 2010000, 1, '2015-04-19 20:14:55', 'ghffu', 0, 0, 0, 0, 0),
-(34, 1, 1020000, 1, '2015-04-19 20:18:04', 'dgkr', 0, 0, 0, 0, 0),
-(35, 1, 1020000, 1, '2015-04-19 20:22:56', 'tugd', 0, 0, 0, 0, 0),
-(36, 2, 2000000, 1, '2015-04-19 20:33:35', 'fhay', 0, 0, 0, 0, 0);
+(13, 1, 1020000, 1, '2015-04-10 20:54:56', 'vydd', 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -273,17 +264,20 @@ CREATE TABLE IF NOT EXISTS `proposal` (
   `not_understood` int(11) NOT NULL DEFAULT '0',
   `dislikes` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Volcado de datos para la tabla `proposal`
 --
 
 INSERT INTO `proposal` (`id`, `title`, `text`, `how`, `cost`, `id_image`, `date`, `id_category`, `id_user`, `id_group`, `views`, `likes`, `not_understood`, `dislikes`) VALUES
-(1, 'Reducir la contaminación en Madrid', 'Actualmente la contaminación en Madrid está llegando a unos límites por encima de la media de las principales ciudades de la Unión Europea. Por ello deberíamos reducir esa contaminación ambiental acercándonos a la media europea.', 'Cerrando el tráfico en determinadas zonas de Madrid. Distrito: Zona Centro.', 'Hacer 7 km de calles peatonales: 750.000 €', 4, '2015-05-06 00:00:00', 4, 1, -1, 0, 0, 0, 0),
-(2, 'Restaurar el plan de estudios del ''98', ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lobortis, sapien eget dignissim efficitur, augue eros molestie purus, et gravida erat quam a lacus. Fusce vel eros cursus, venenatis dui ac, aliquet risus. Fusce euismod ex at varius lacinia. Sed at urna condimentum orci volutpat eleifend nec id erat. Sed at vestibulum neque. Maecenas vehicula hendrerit felis, quis condimentum arcu commodo eu. Sed egestas, orci eget ultricies mollis, est leo porttitor sem, at elementum enim arcu ut magna. ', 'Suprimienndo el plan Bolonia de los grados de 4 años a licenciaturas y diplomaturas.', 'Coste 0.', 2, '2015-05-18 00:00:00', 2, 2, -1, 0, 0, 0, 0),
-(3, 'Manuela Alcaldesa', 'Queremos que Manuela sea Alcaldesa.', 'Jubilando a Esperanza Aguirre.', 'Coste 0.', 7, '2015-05-25 14:18:46', 7, 2, -1, 4, 6, 2, 1),
-(4, 'Software Libre en las Instituciones', 'Implantar Software Libre en todas las Instituciones de la Administración General del Estado.', 'Sustituyendo Windows por distribuciones libres GNU/Linux.', 'Coste 0.', 6, '2015-05-13 16:19:21', 6, 2, -1, 6, 4, 2, 1);
+(1, 'Reducir la contaminación en Madrid', 'Actualmente la contaminación en Madrid está llegando a unos límites por encima de la media de las principales ciudades de la Unión Europea. Por ello deberíamos reducir esa contaminación ambiental acercándonos a la media europea.', 'Cerrando el tráfico en determinadas zonas de Madrid. Distrito: Zona Centro.', 'Hacer 7 km de calles peatonales: 750.000 €', 4, '2015-05-06 00:00:00', 4, 1, -1, 3, 3, 0, 0),
+(2, 'Restaurar el plan de estudios del ''98', ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lobortis, sapien eget dignissim efficitur, augue eros molestie purus, et gravida erat quam a lacus. Fusce vel eros cursus, venenatis dui ac, aliquet risus. Fusce euismod ex at varius lacinia. Sed at urna condimentum orci volutpat eleifend nec id erat. Sed at vestibulum neque. Maecenas vehicula hendrerit felis, quis condimentum arcu commodo eu. Sed egestas, orci eget ultricies mollis, est leo porttitor sem, at elementum enim arcu ut magna. ', 'Suprimienndo el plan Bolonia de los grados de 4 años a licenciaturas y diplomaturas.', 'Coste 0.', 2, '2015-05-18 00:00:00', 2, 2, -1, 2, 0, 1, 0),
+(3, 'Manuela Alcaldesa', 'Queremos que Manuela sea Alcaldesa.', 'Jubilando a Esperanza Aguirre.', 'Coste 0.', 7, '2015-05-25 14:18:46', 7, 2, -1, 4, 10, 5, 15),
+(4, 'Software Libre en las Instituciones', 'Implantar Software Libre en todas las Instituciones de la Administración General del Estado.', 'Sustituyendo Windows por distribuciones libres GNU/Linux.', 'Coste 0.', 6, '2015-05-13 16:19:21', 6, 2, -1, 6, 4, 2, 1),
+(5, 'Creacion de mas hospitales públicos', 'Propongo construir más hospitales y reconvertir hospitales privados en públicos para mejorar la calidad de nuestro sistema sanitario.', 'Construyendo nuevos hospitales y reconvirtiendo los de gestion privada a gestión pública.', '¡Gratis!', 1, '2015-05-25 18:52:41', 1, 1, -1, 2, 0, 0, 0),
+(6, 'No al 3+2', 'Continuar con el modelo actual del plan de estudios Bolonia de grados de 4 años y masteres de 1.', 'No cambiando el plan de estudios universitario actual.', 'Coste 0', 2, '2015-05-25 19:11:24', 2, 1, -1, 4, 0, 0, 1),
+(7, 'Reforma de la ley electoral', 'Reformar la ley electoral para sustituir la ley D''Hont por otro sistema más justo. ', 'Estableciendo una nueva ley.', 'Coste 0.', 7, '2015-05-26 12:23:59', 7, 1, -1, 4, 2, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -322,7 +316,7 @@ CREATE TABLE IF NOT EXISTS `section` (
 
 INSERT INTO `section` (`id_political_party`, `section`, `title`, `text`, `id_category`, `likes`, `not_understood`, `dislikes`, `views`) VALUES
 (1, 1000000, '1. Recuperar la economía, construir la\r\ndemocracia', NULL, 0, 18, 9, 9, 0),
-(1, 1010000, '1.1 - Plan de rescate ciudadano centrado en la creación de empleo\r\ndecente en los países del sur de Europa', 'Programa de inversiones y políticas públicas para la reactivación económica,\r\nla creación de empleo de calidad y la reconversión del modelo productivo\r\nhacia una economía basada en la innovación que contribuya al bien común\r\nteniendo en cuenta criterios de responsabilidad social, ética y medioambiental.\r\nPromoción del protagonismo de la pequeña y mediana empresa en la\r\ncreación de empleo, resaltando el papel de las entidades de la economía\r\nsocial. Política de contratación pública favorable a la pequeña y mediana\r\nempresa que incluya cláusulas sociales en la adjudicación de los contratos.\r\nReducción de la jornada laboral a 35 horas semanales y de la edad de\r\njubilación a 60 años, como mecanismos para redistribuir equitativamente el\r\ntrabajo y la riqueza, favoreciendo la conciliación familiar. Prohibición de los\r\ndespidos en empresas con beneficios. Derogación de las reformas laborales\r\nimplantadas desde el estallido de la crisis: 2010, 2012 y RD 3/2014.\r\nEstablecimiento de mecanismos para combatir la precarización del empleo,\r\nespecialmente en el empleo joven para contrarrestar el exilio juvenil.\r\nEliminación de las Empresas de Trabajo Temporal. Incremento significativo del\r\nsalario mínimo interprofesional y establecimiento de un salario máximo\r\nvinculado proporcionalmente al salario mínimo interprofesional . Derecho a\r\ndisfrutar de una pensión pública no contributiva, de calidad y que garantice\r\nuna vida decente tras la jubilación,su cuantía igualará como mínimo el salario\r\nmínimo interprofesional. Derogación de la última reforma de las pensiones y\r\nprohibición de la privatización o recortes del sistema público de pensiones.\r\n\r\nEstablecimiento de políticas redistributivas para la reducción de la\r\ndesigualdad social en el marco nacional y comunitario. Convergencia del\r\ngasto social sobre el PIB respecto al promedio de la Unión.', 0, 19, 0, 0, 6),
+(1, 1010000, '1.1 - Plan de rescate ciudadano centrado en la creación de empleo\r\ndecente en los países del sur de Europa', 'Programa de inversiones y políticas públicas para la reactivación económica,\r\nla creación de empleo de calidad y la reconversión del modelo productivo\r\nhacia una economía basada en la innovación que contribuya al bien común\r\nteniendo en cuenta criterios de responsabilidad social, ética y medioambiental.\r\nPromoción del protagonismo de la pequeña y mediana empresa en la\r\ncreación de empleo, resaltando el papel de las entidades de la economía\r\nsocial. Política de contratación pública favorable a la pequeña y mediana\r\nempresa que incluya cláusulas sociales en la adjudicación de los contratos.\r\nReducción de la jornada laboral a 35 horas semanales y de la edad de\r\njubilación a 60 años, como mecanismos para redistribuir equitativamente el\r\ntrabajo y la riqueza, favoreciendo la conciliación familiar. Prohibición de los\r\ndespidos en empresas con beneficios. Derogación de las reformas laborales\r\nimplantadas desde el estallido de la crisis: 2010, 2012 y RD 3/2014.\r\nEstablecimiento de mecanismos para combatir la precarización del empleo,\r\nespecialmente en el empleo joven para contrarrestar el exilio juvenil.\r\nEliminación de las Empresas de Trabajo Temporal. Incremento significativo del\r\nsalario mínimo interprofesional y establecimiento de un salario máximo\r\nvinculado proporcionalmente al salario mínimo interprofesional . Derecho a\r\ndisfrutar de una pensión pública no contributiva, de calidad y que garantice\r\nuna vida decente tras la jubilación,su cuantía igualará como mínimo el salario\r\nmínimo interprofesional. Derogación de la última reforma de las pensiones y\r\nprohibición de la privatización o recortes del sistema público de pensiones.\r\n\r\nEstablecimiento de políticas redistributivas para la reducción de la\r\ndesigualdad social en el marco nacional y comunitario. Convergencia del\r\ngasto social sobre el PIB respecto al promedio de la Unión.', 0, 20, 0, 0, 9),
 (1, 1020000, '1.2 - Auditoría ciudadana de la deuda', 'Auditoría ciudadana de la deuda pública y privada para delimitar qué partes\r\nde éstas pueden ser consideradas ilegítimas para tomar medidas contra los\r\nresponsables y declarar su impago. Reestructuraciones del resto de la deuda\r\ny derogación del artículo 135 de la Constitución española con el objetivo de\r\ngarantizar los derechos sociales frente a los intereses de los acreedores y los\r\ntenedores de la deuda. Coordinación de las auditorías y de los procesos de\r\nreestructuración de deuda con otros países de la UE. Regulación de las\r\nrelaciones privadas de deuda para impedir cláusulas de abuso.', 0, 6, 5, 0, 5),
 (1, 1030000, '1.3 - Conversión del BCE en una institución democrática para el\r\ndesarrollo económico de los países', 'Creación de mecanismos de control democrático y parlamentario sobre el\r\nBanco Central Europeo y supeditación del mismo a las autoridades políticas.\r\nModificación de sus estatutos e incorporación como objetivos prioritarios la creación de empleo decente en el conjunto de la UE, la prevención de ataques especulativos y el apoyo a la financiación pública de los Estados a través de la compra directa de deuda pública en el mercado primario sin limitaciones. Apoyo prioritario a la financiación del gasto social de los Estados\r\ny de aquellos sectores económicos, sociales y territoriales en situaciones más desfavorecidas mediante mecanismos redistributivos y cuando sea necesario,\r\nmediante la creación de bonos sociales europeos. Diferenciación de la\r\nnormativa para la banca comercial y la banca de inversión, regulando las\r\nactividades especulativas a esta última.', 0, 0, 0, 0, 0),
 (1, 1040000, '1.4 - Creación de una Agencia Pública Europea de Rating', 'Creación de una Agencia Pública Europea de Rating que sustituya a las tres privadas que hoy determinan la política económica de la UE. Funcionará de\r\nacuerdo a criterios democráticos, transparentes e independientes del interés\r\nprivado empresarial.', 0, 0, 0, 0, 0),
